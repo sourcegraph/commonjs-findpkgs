@@ -19,6 +19,11 @@ glob(path.join(dir, '**/package.json'), function(err, files) {
     process.exit(1);
   }
 
+  if (files.length == 0) {
+    console.log('[]');
+    process.exit(0);
+  }
+
   var pkgs = [];
   files.forEach(function(file) {
     readJson(file, function(err, data) {
