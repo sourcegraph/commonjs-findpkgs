@@ -17,7 +17,7 @@
     "should": "~2.1.1"
   },
   "bin": {
-    "commonjs-findpkgs": "findpkgs.js"
+    "commonjs-findpkgs": "bin/commonjs-findpkgs.js"
   },
   "scripts": {
     "test": "mocha"
