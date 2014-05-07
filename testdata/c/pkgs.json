@@ -1,0 +1,9 @@
+[
+  {
+    "packageJSONFile": "testdata/c/package.json",
+    "libFiles": [
+      "testdata/c/x.js"
+    ],
+    "testFiles": []
+  }
+]

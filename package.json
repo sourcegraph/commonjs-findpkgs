@@ -1,0 +1,25 @@
+{
+  "name":"commonjs-findpkgs",
+  "version": "0.0.1",
+  "description": "Finds all CommonJS (package.json) packages and determines their source files.",
+  "author": {
+    "name" :"Quinn Slack",
+    "email": "sqs@sourcegraph.com",
+    "url": "https://sourcegraph.com/sqs"
+  },
+  "main": "findpkgs.js",
+  "dependencies": {
+    "read-package-json": "~1.1.9",
+    "glob": "~3.2.9"
+  },
+  "devDependencies": {
+    "mocha": "1.10.0",
+    "should": "~2.1.1"
+  },
+  "bin": {
+    "commonjs-findpkgs": "findpkgs.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}

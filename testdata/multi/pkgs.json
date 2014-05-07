@@ -1,0 +1,18 @@
+[
+  {
+    "packageJSONFile": "testdata/multi/package.json",
+    "libFiles": [
+      "testdata/multi/lib/x.js",
+      "testdata/multi/index.js"
+    ],
+    "testFiles": []
+  },
+  {
+    "packageJSONFile": "testdata/multi/subpkg/package.json",
+    "libFiles": [
+      "testdata/multi/subpkg/lib/y.js",
+      "testdata/multi/subpkg/index.js"
+    ],
+    "testFiles": []
+  }
+]
