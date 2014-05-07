@@ -1,5 +1,6 @@
 [
   {
+    "dir": "testdata/b",
     "packageJSONFile": "testdata/b/package.json",
     "libFiles": [
       "testdata/b/x.js"

@@ -1,5 +1,6 @@
 [
   {
+    "dir": "testdata/multi",
     "packageJSONFile": "testdata/multi/package.json",
     "libFiles": [
       "testdata/multi/lib/x.js",
@@ -8,6 +9,7 @@
     "testFiles": []
   },
   {
+    "dir": "testdata/multi/subpkg",
     "packageJSONFile": "testdata/multi/subpkg/package.json",
     "libFiles": [
       "testdata/multi/subpkg/lib/y.js",

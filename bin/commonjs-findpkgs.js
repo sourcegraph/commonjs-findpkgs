@@ -34,6 +34,7 @@ glob(path.join(dir, '**/package.json'), function(err, files) {
       if (mainFile && libFiles.indexOf(mainFile) == -1) libFiles.push(mainFile);
 
       pkgs.push({
+        dir: pkgdir,
         packageJSONFile: file,
 //        package: data,
         libFiles: libFiles,
