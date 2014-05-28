@@ -41,7 +41,7 @@ glob(path.join(dir, '**/package.json'), function(err, files) {
       pkgs.push({
         dir: pkgdir,
         packageJSONFile: file,
-//        package: data,
+        package: data,
         libFiles: libFiles,
         testFiles: glob.sync(path.join(pkgdir, 'test/**/*.js')),
       });
