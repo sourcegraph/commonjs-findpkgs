@@ -1,6 +1,6 @@
 {
   "name":"commonjs-findpkgs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Finds all CommonJS (package.json) packages and determines their source files.",
   "author": {
     "name" :"Quinn Slack",
