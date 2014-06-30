@@ -2,6 +2,14 @@
   {
     "dir": "testdata/b",
     "packageJSONFile": "testdata/b/package.json",
+    "package": {
+      "main": "x",
+      "name": "",
+      "version": "",
+      "_id": "@",
+      "readme": "ERROR: No README.md file found!",
+      "description": "ERROR: No README.md file found!"
+    },
     "libFiles": [
       "testdata/b/x.js"
     ],

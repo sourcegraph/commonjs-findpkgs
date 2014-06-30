@@ -1,12 +1,29 @@
 #!/usr/bin/env nodejs
 
+var path = require('path');
+
 if (process.argv[2] == '-h') {
   console.error('Usage: commonjs-findpkgs [dir] (defaults to working dir)');
   process.exit(1)
 }
 
+var ignores;
+if (process.argv[2] == '--ignore') {
+  ignores = JSON.parse(process.argv[3]);
+  process.argv.splice(2, 2);
+}
+
 var dir = process.argv[2];
 if (!dir) dir = '.';
+
+// make ignores relative to dir
+if (ignores) {
+  for (var i = 0; i < ignores.length; i++) {
+    ignores[i] = path.join(dir, ignores[i]);
+  }
+}
+
+console.error('ignores are:', ignores);
 
 var glob = require('glob');
 var path = require('path');
@@ -18,6 +35,17 @@ glob(path.join(dir, '**/package.json'), function(err, files) {
     console.error('Error finding package.json files:', err);
     process.exit(1);
   }
+
+  // check that files are not ignored
+  files = files.filter(function(file) {
+    if (ignores) {
+      for (var i = 0; i < ignores.length; i++) {
+        if (file.indexOf(ignores[i]) == 0) return false; // skip processing file
+      }
+    }
+    return true;
+  });
+
 
   if (files.length == 0) {
     console.log('[]');

@@ -1,0 +1,15 @@
+[
+  {
+    "dir": "testdata/ignore/not-ignored",
+    "packageJSONFile": "testdata/ignore/not-ignored/package.json",
+    "package": {
+      "name": "not-ignored",
+      "version": "",
+      "_id": "not-ignored@",
+      "readme": "ERROR: No README.md file found!",
+      "description": "ERROR: No README.md file found!"
+    },
+    "libFiles": [],
+    "testFiles": []
+  }
+]

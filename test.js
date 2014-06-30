@@ -7,6 +7,7 @@ describe('commonjs-findpkgs', function() {
     {name: 'b'},
     {name: 'c'},
     {name: 'multi'},
+    {name: 'ignore', args: ['--ignore', '["./package.json", "./subdir"]']},
   ].filter(function(test) { return new RegExp(process.env['F'] || '').test(test.name); }).forEach(function(test) {
     it(test.name, function(done) {
       var expFile = './testdata/' + test.name + '/pkgs.json';
