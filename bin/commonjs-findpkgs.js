@@ -23,8 +23,6 @@ if (ignores) {
   }
 }
 
-console.error('ignores are:', ignores);
-
 var glob = require('glob');
 var path = require('path');
 var fs = require('fs');
