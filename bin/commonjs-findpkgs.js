@@ -1,6 +1,7 @@
 #!/usr/bin/env nodejs
 
 var path = require('path');
+var findpkgs = require('../findpkgs');
 
 if (process.argv[2] == '-h') {
   console.error('Usage: commonjs-findpkgs [dir] (defaults to working dir)');
@@ -23,65 +24,11 @@ if (ignores) {
   }
 }
 
-var glob = require('glob');
-var path = require('path');
-var fs = require('fs');
-var readJson = require('read-package-json');
-
-glob(path.join(dir, '**/package.json'), function(err, files) {
+findpkgs(dir, ignores, function(err, pkgs) {
   if (err) {
-    console.error('Error finding package.json files:', err);
+    console.error(err);
     process.exit(1);
+    return;
   }
-
-  // check that files are not ignored
-  files = files.filter(function(file) {
-    if (ignores) {
-      for (var i = 0; i < ignores.length; i++) {
-        if (file.indexOf(ignores[i]) == 0) return false; // skip processing file
-      }
-    }
-    return true;
-  });
-
-
-  if (files.length == 0) {
-    console.log('[]');
-    process.exit(0);
-  }
-
-  var pkgs = [];
-  files.forEach(function(file) {
-    readJson(file, function(err, data) {
-      if (err) {
-        console.error('Error reading ' + file + ':', err);
-        process.exit(1);
-      }
-
-      var pkgdir = path.dirname(file);
-
-      var libFiles = glob.sync(path.join(pkgdir, 'lib/**/*.js'));
-      var mainFile = findMainFile(pkgdir, data.main || 'index');
-      if (mainFile && libFiles.indexOf(mainFile) == -1) libFiles.push(mainFile);
-
-      pkgs.push({
-        dir: pkgdir,
-        packageJSONFile: file,
-        package: data,
-        libFiles: libFiles,
-        testFiles: glob.sync(path.join(pkgdir, 'test/**/*.js')),
-      });
-      if (pkgs.length == files.length) console.log(JSON.stringify(pkgs, null, 2));
-    });
-  });
-})
-
-function findMainFile(dir, main) {
-  var poss = [main];
-  if (!/\.js(on)?$/.test(main)) poss.push(main + '.js', main + '.json');
-  var found;
-  poss.forEach(function(f) {
-    if (fs.existsSync(path.join(dir, f))) found = f;
-  });
-  if (found) return path.join(dir, found);
-}
+  console.log(JSON.stringify(pkgs, null, 2));
+});
