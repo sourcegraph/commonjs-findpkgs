@@ -2,6 +2,10 @@
   "name":"commonjs-findpkgs",
   "version": "0.0.6",
   "description": "Finds all CommonJS (package.json) packages and determines their source files.",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/sourcegraph/commonjs-findpkgs.git"
+  },
   "author": {
     "name" :"Quinn Slack",
     "email": "sqs@sourcegraph.com",
