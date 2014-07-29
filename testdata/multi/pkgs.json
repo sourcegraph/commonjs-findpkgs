@@ -2,13 +2,6 @@
   {
     "dir": "testdata/multi",
     "packageJSONFile": "testdata/multi/package.json",
-    "package": {
-      "name": "",
-      "version": "",
-      "_id": "@",
-      "readme": "ERROR: No README.md file found!",
-      "description": "ERROR: No README.md file found!"
-    },
     "libFiles": [
       "testdata/multi/lib/x.js",
       "testdata/multi/index.js"
@@ -18,13 +11,6 @@
   {
     "dir": "testdata/multi/subpkg",
     "packageJSONFile": "testdata/multi/subpkg/package.json",
-    "package": {
-      "name": "",
-      "version": "",
-      "_id": "@",
-      "readme": "ERROR: No README.md file found!",
-      "description": "ERROR: No README.md file found!"
-    },
     "libFiles": [
       "testdata/multi/subpkg/lib/y.js",
       "testdata/multi/subpkg/index.js"

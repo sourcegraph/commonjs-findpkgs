@@ -19,7 +19,13 @@ describe('commonjs-findpkgs', function() {
         if (stderr) console.error(stderr);
         assert.ifError(err);
         if (test.failing) return done();
+
         var got = JSON.parse(stdout);
+
+        // don't test for equality of the "package" data because that is quite
+        // large and makes it harder to debug the important test failures.
+        got.forEach(function(pkg) { delete pkg.package; });
+
         if (process.env['EXP']) {
           var pp = JSON.stringify(got, null, 2);
           fs.writeFile(expFile, pp + '\n', function(err) {
@@ -29,9 +35,6 @@ describe('commonjs-findpkgs', function() {
           });
           return;
         }
-        // don't test for equality of the "package" data because that is quite
-        // large and makes it harder to debug the important test failures.
-        got.forEach(function(pkg) { delete pkg.package; });
         if (process.env['DEBUG']) {
           console.log(JSON.stringify(got, null, 2));
           got.should.eql(want);
