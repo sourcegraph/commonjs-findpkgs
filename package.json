@@ -1,6 +1,6 @@
 {
   "name":"commonjs-findpkgs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Finds all CommonJS (package.json) packages and determines their source files.",
     "repository": {
     "type": "git",
