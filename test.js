@@ -36,12 +36,7 @@ describe('commonjs-findpkgs', function() {
           });
           return;
         }
-        if (process.env['DEBUG']) {
-          console.log(JSON.stringify(got, null, 2));
-          got.should.eql(want);
-        } else {
-          assert.deepEqual(got, want);
-        }
+        assert.deepEqual(got, want);
         done();
       });
     });

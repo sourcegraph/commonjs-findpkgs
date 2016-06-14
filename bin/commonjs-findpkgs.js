@@ -1,6 +1,6 @@
 #!/usr/bin/env nodejs
 
-var path = require('path');
+var path = require('path').posix;
 var findpkgs = require('../findpkgs');
 
 if (process.argv[2] == '-h') {
