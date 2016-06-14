@@ -1,5 +1,5 @@
 var glob = require('glob');
-var path = require('path');
+var path = require('path').posix;
 var fs = require('fs');
 var readJson = require('read-package-json');
 
@@ -9,8 +9,7 @@ var readJson = require('read-package-json');
 module.exports = function(dir, ignores, cb) {
   glob(path.join(dir, '**/package.json'), function(err, files) {
     if (err) {
-      console.error('Error finding package.json files:', err);
-      process.exit(1);
+      return cb(err);
     }
 
     // check that files are not ignored
@@ -23,9 +22,8 @@ module.exports = function(dir, ignores, cb) {
       return true;
     });
 
-    if (files.length == 0) {
-      cb(null, []);
-      return;
+    if (!files.length) {
+        return cb(null, []);
     }
 
     var pkgs = [];
