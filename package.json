@@ -14,7 +14,7 @@
   "main": "findpkgs.js",
   "dependencies": {
     "read-package-json": "2.0.4",
-    "glob": "~3.2.9"
+    "find-files-excluding-dirs": "alexsaveliev/find-files-excluding-dirs"
   },
   "devDependencies": {
     "mocha": "2.5.3",
