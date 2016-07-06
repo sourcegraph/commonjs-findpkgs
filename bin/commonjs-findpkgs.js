@@ -17,13 +17,6 @@ if (process.argv[2] == '--ignore') {
 var dir = process.argv[2];
 if (!dir) dir = '.';
 
-// make ignores relative to dir
-if (ignores) {
-  for (var i = 0; i < ignores.length; i++) {
-    ignores[i] = path.join(dir, ignores[i]);
-  }
-}
-
 findpkgs(dir, ignores, function(err, pkgs) {
   if (err) {
     console.error(err);
